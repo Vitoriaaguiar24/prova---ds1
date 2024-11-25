@@ -49,9 +49,11 @@ if enviado:
         sn.append(senha)
     if telefone:
         telef.append(telefone)                      
-    if nome and email and telefone and senha and len(senha) >= 8:
+    if nome and "@" in email and telefone and senha and len(senha) >= 8:
         st.switch_page("pages/Informações Pessoais.py")
     elif nome and email and telefone and senha and len(senha) < 8:
         st.error("A senha deve ter no mínimo 8 caracteres.")
+    elif "@" not in email:
+        st.error("Digite seu email corretamente")    
     else:
         st.error("Por favor, preencha todos os campos obrigatórios.")    
